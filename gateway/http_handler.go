@@ -62,7 +62,7 @@ func (h *handler) HandleCreateOrder(w http.ResponseWriter, r *http.Request) {
 
 func validateItems(items []*pb.ItemsWithQuantity) error {
 	if len(items) == 0 {
-		return errors.New("At least one item is required")
+		return common.ErrNoItems
 	}
 
 	for _, i := range items {
